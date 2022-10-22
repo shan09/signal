@@ -56,7 +56,9 @@ const LoginScreen = ({navigation}) => {
 
 export default LoginScreen
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create(
+
+    {
 
     container : {
         flex : 1,
@@ -74,4 +76,5 @@ const styles = StyleSheet.create({
         width : 200,
         marginTop : 10,
     },
-})
+}
+)

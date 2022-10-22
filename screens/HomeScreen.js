@@ -5,7 +5,7 @@ import CustomListItem from "../components/CustomListItem"
 import {useState, useLayoutEffect,useEffect} from 'react'
 import { getAuth, createUserWithEmailAndPassword, updateProfile, signOut } from "firebase/auth";
 import { ListItem, Avatar } from "@rneui/themed"
-import { TouchableOpacity } from 'react-native'
+import { TouchableOpacity, Mo } from 'react-native'
 import { AntDesign, SimpleLineIcons } from "@expo/vector-icons"
 import { getFirestore } from 'firebase/firestore'
 import { collection, doc, setDoc, getDocs } from "firebase/firestore"; 

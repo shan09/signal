@@ -65,7 +65,7 @@ const ChatScreen = ( {navigation, route}) => {
                         flexDirection : "row",
                         alignItems : "center",
                     }}>
-                    <Avatar rounded source = {{ uri : "https://www.mtsolar.us/wp-content/uploads/2020/04/avatar-placeholder.png"}}></Avatar>
+                    <Avatar rounded source = {{ uri : messages[0]?.data.photoURL || "https://www.mtsolar.us/wp-content/uploads/2020/04/avatar-placeholder.png"}}></Avatar>
                     <Text style = {{ color : "white", marginLeft : 10, fontWeight : "700"}}>{route.params.chatName}</Text>
                 </View>
             ),
@@ -112,7 +112,7 @@ const ChatScreen = ( {navigation, route}) => {
                 
                 <TouchableWithoutFeedback onPress = {Keyboard.dismiss} >
                 <>
-                    <ScrollView>
+                    <ScrollView contentContainerStyle = {{ paddingTop : 15}}>
                         {/* Chat goes here */}
                         {messages.map(({id,data}) => (
 
@@ -123,9 +123,10 @@ const ChatScreen = ( {navigation, route}) => {
                                 </View>
                             ) : 
                             (
-                                <View style = {style.sender}>
-                                    <Avatar />
+                                <View style = {styles.sender}>
+                                    <Avatar position = "absolute" rounded bottom = {-15} left = {-5} size = {30} source = {{uri : data.photoURL}}/>
                                     <Text style = {styles.senderText}>{data.message}</Text>
+                                    <Text style = {styles.senderName}>{data.displayName}</Text>
                                 </View>
                             )
 
@@ -187,6 +188,12 @@ const styles = StyleSheet.create({
         position : "relative",
     },
 
+    recieverText : {
+        color : "black" ,
+        fontWeight : "500",
+        marginLeft : 10,
+        marginBottom : 15
+    },
     sender : {
         padding : 15,
         backgroundColor : "#2B68E6",
@@ -195,5 +202,18 @@ const styles = StyleSheet.create({
         margin : 15,
         maxWidth : "80%",
         position : "relative",
+    },
+
+    senderText : {
+        color : "white",
+        fontWeight : "500",
+        marginLeft : 10,
+        marginBottom : 15
+    },  
+    senderName : {
+        left : 10,
+        paddingRight : 10,
+        fontSize : 10,
+        color : "white"
     }
 })

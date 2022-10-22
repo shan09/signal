@@ -15,7 +15,7 @@ const RegisterScreen = ({ navigation }) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-    const [imageUrl, setImageUrl] = useState()
+    const [imageUrl, setImageUrl] = useState("")
     
      useLayoutEffect(() => {
          navigation.setOptions({
@@ -26,7 +26,7 @@ const RegisterScreen = ({ navigation }) => {
         createUserWithEmailAndPassword(auth, email, password)
         .then((authUser) => {
             updateProfile(authUser.user,{
-                name,photoURL : "https://www.mtsolar.us/wp-content/uploads/2020/04/avatar-placeholder.png"
+                name : name,photoURL : imageUrl ? imageUrl  : "https://www.mtsolar.us/wp-content/uploads/2020/04/avatar-placeholder.png"
             })
 
         })
